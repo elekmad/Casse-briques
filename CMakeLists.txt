@@ -9,6 +9,7 @@ add_executable(MyProject main.c)
 #Déclaration de l'exécutable
 include(FindPkgConfig)
 
+target_link_libraries (MyProject m)
 find_package(SDL2 REQUIRED)
 if (SDL2_FOUND)
   include_directories(${SDL2_INCLUDE_DIR})

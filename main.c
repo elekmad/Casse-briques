@@ -3,6 +3,7 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
+#include <math.h>
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGTH 600
@@ -20,6 +21,17 @@ struct ball
    int x_speed;
    int y_speed;
 };
+
+struct raquette
+{
+    double angle;
+    int distance;
+    int size;
+};
+
+typedef struct raquette raquette;
+
+raquette raq = { .angle = 0, .distance = 40, .size = 30 };
 
 typedef struct ball ball;
 
@@ -42,6 +54,32 @@ void draw_world_case(SDL_Renderer *renderer, int x, int y, int r, int v, int b, 
     SDL_SetRenderDrawColor(renderer, r, v, b, a);
     SDL_Rect pos = {x * BLOCK_SIZE,  y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE};
     SDL_RenderFillRect(renderer, &pos);
+}
+
+void draw_raquette(SDL_Renderer *renderer)
+{
+    Sint16 x[4], y[4];
+    x[0] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance - 5) * cos(raq.angle) + raq.size / 2 * sin(raq.angle);
+    y[0] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance - 5) * sin(raq.angle) - raq.size / 2 * cos(raq.angle);
+    x[1] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance) * cos(raq.angle) + raq.size / 2 * sin(raq.angle);
+    y[1] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance) * sin(raq.angle) - raq.size / 2 * cos(raq.angle);
+    x[2] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance) * cos(raq.angle) - raq.size / 2 * sin(raq.angle);
+    y[2] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance) * sin(raq.angle) + raq.size / 2 * cos(raq.angle);
+    x[3] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance - 5) * cos(raq.angle) - raq.size / 2 * sin(raq.angle);
+    y[3] = WORLD_SIZE * BLOCK_SIZE / 2 - (raq.distance - 5) * sin(raq.angle) + raq.size / 2 * cos(raq.angle);
+    printf("angle = %f, x1, y1 = %d %d\n", raq.angle, x[0], y[0]);
+    filledPolygonRGBA(renderer, x, y, 4, 0, 120, 10, 255);
+
+    x[0] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance + 5) * cos(raq.angle) - raq.size / 2 * sin(raq.angle);
+    y[0] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance + 5) * sin(raq.angle) + raq.size / 2 * cos(raq.angle);
+    x[1] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance) * cos(raq.angle) - raq.size / 2 * sin(raq.angle);
+    y[1] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance) * sin(raq.angle) + raq.size / 2 * cos(raq.angle);
+    x[2] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance) * cos(raq.angle) + raq.size / 2 * sin(raq.angle);
+    y[2] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance) * sin(raq.angle) - raq.size / 2 * cos(raq.angle);
+    x[3] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance + 5) * cos(raq.angle) + raq.size / 2 * sin(raq.angle);
+    y[3] = WORLD_SIZE * BLOCK_SIZE / 2 + (raq.distance + 5) * sin(raq.angle) - raq.size / 2 * cos(raq.angle);
+    printf("angle = %f, x1, y1 = %d %d\n", raq.angle, x[0], y[0]);
+    filledPolygonRGBA(renderer, x, y, 4, 0, 120, 10, 255);
 }
 
 void draw_world(SDL_Renderer *renderer)
@@ -169,10 +207,14 @@ int main( int argc, char *argv[ ] )
         draw_world(renderer);
         move_ball();
         draw_ball(renderer);
+        draw_raquette(renderer);
 	if(x + xspeed < 640 && x + xspeed >= 0)
 	    x += xspeed;
 	if(y + yspeed < 480 && y + yspeed >= 0)
 	    y += yspeed;
+        raq.angle += 1.0 * M_PI / 180.0;
+        //if(raq.angle > M_PI_2)
+        //    raq.angle = 0;
 
        // Check for messages
         if (SDL_PollEvent(&event))
