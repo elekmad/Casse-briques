@@ -287,6 +287,7 @@ int main( int argc, char *argv[ ] )
 
     init_world();
     // Main loop
+    const Uint8 *keyboard = SDL_GetKeyboardState(NULL);
     SDL_Event event;
     while(1)
     {
@@ -303,7 +304,26 @@ int main( int argc, char *argv[ ] )
         //if(raq.angle > M_PI_2)
         //    raq.angle = 0;
 
+        
        // Check for messages
+        SDL_PumpEvents();
+        if(keyboard[SDL_SCANCODE_UP] || keyboard[SDL_SCANCODE_RIGHT])
+        {
+            raq.angle += 2 * M_PI / 180;
+            if(raq.angle > 2 * M_PI)
+                raq.angle -= 2 * M_PI;
+        }
+        if(keyboard[SDL_SCANCODE_DOWN] || keyboard[SDL_SCANCODE_LEFT])
+        {
+            raq.angle -= 2 * M_PI / 180;
+            if(raq.angle < -2 * M_PI)
+                raq.angle += 2 * M_PI;
+        }
+        if(keyboard[SDL_SCANCODE_ESCAPE])
+        {
+            SDL_Quit();
+            return EXIT_SUCCESS;
+        }
         if (SDL_PollEvent(&event))
         {
             // Check for the quit message
@@ -313,7 +333,7 @@ int main( int argc, char *argv[ ] )
                     SDL_Quit();
 		    return EXIT_SUCCESS;// Quit the program
                     break;
-		case SDL_KEYUP:
+/*		case SDL_KEYUP:
 		case SDL_KEYDOWN:
 			printf("keydown %d\n", event.key.keysym.sym);
 			switch(event.key.keysym.sym)
@@ -335,7 +355,7 @@ int main( int argc, char *argv[ ] )
                                 return EXIT_SUCCESS;// Quit the program
                                 break;
 			}
-		        break;
+		        break;*/
             }
         }
        
