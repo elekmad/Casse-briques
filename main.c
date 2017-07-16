@@ -121,7 +121,7 @@ void undraw_ball(SDL_Renderer *renderer)
 {
     filledCircleRGBA(renderer, world_ball.x, world_ball.y, world_ball.size, 0, 0, 0, 255);
 }
-
+//Algo provenant de http://www.faqs.org/faqs/graphics/algorithms-faq/ 2.03
 int pnpoly(int npol, Sint16 *xp, Sint16 *yp, Sint16 x, Sint16 y)
 {
   int i, j, c = 0;
