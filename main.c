@@ -5,19 +5,19 @@
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <math.h>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGTH 600
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGTH 768
 
-#define WORLD_SIZE 60
-#define BLOCK_SIZE 5
+#define WORLD_SIZE 70
+#define BLOCK_SIZE 10
 
 char world[WORLD_SIZE][WORLD_SIZE];
 
 struct ball
 {
-   int x;
-   int y;
-   int size;
+   double x;
+   double y;
+   double size;
    double speed;
    double angle;
 };
@@ -25,8 +25,8 @@ struct ball
 struct raquette
 {
     double angle;
-    int distance;
-    int size;
+    double distance;
+    double size;
     Sint16 x1[4];
     Sint16 y1[4];
     Sint16 x2[4];
@@ -201,7 +201,7 @@ void move_ball(void)
            world_ball.angle += 2 * M_PI;
         x_speed = world_ball.speed * cos(world_ball.angle);
         y_speed = world_ball.speed * sin(world_ball.angle);
-        printf("Horizontal collision new angle %f (%f degres)\n", world_ball.angle, world_ball.angle * 180 / M_PI);
+        printf("Horizontal collision new angle %f (%f degres) speed (%f, %f)\n", world_ball.angle, world_ball.angle * 180 / M_PI, x_speed, y_speed);
     }
     if(collision_v)
     {
@@ -219,7 +219,7 @@ void move_ball(void)
            world_ball.angle += 2 * M_PI;
         x_speed = world_ball.speed * cos(world_ball.angle);
         y_speed = world_ball.speed * sin(world_ball.angle);
-        printf("Vertical collision new angle %f (%f degres)\n", world_ball.angle, world_ball.angle * 180 / M_PI);
+        printf("Vertical collision new angle %f (%f degres) speed (%f, %f)\n", world_ball.angle, world_ball.angle * 180 / M_PI, x_speed, y_speed);
     }
     if(collision_d)
     {
@@ -274,7 +274,7 @@ int main( int argc, char *argv[ ] )
 
     atexit( SDL_Quit );
     SDL_Renderer *renderer;
-    window = SDL_CreateWindow("Ma fenêtre de jeu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, 0 );
+    window = SDL_CreateWindow("Ma fenêtre de jeu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGTH, 0 );
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     init_world();
