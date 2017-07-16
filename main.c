@@ -240,7 +240,7 @@ void move_ball(void)
             case_y = (new_y - world_ball.size) / BLOCK_SIZE;
         if(world[case_x][case_y] == 1)
             world[case_x][case_y] = 0;
-        world_ball.angle = 3 * M_PI_4 - world_ball.angle;
+        world_ball.angle = 3 * M_PI_2 - world_ball.angle;
         while(world_ball.angle > 2 * M_PI)
            world_ball.angle -= 2 * M_PI;
         while(world_ball.angle < -2 * M_PI)
