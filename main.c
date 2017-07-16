@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <math.h>
+#include <time.h>
 
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGTH 768
@@ -35,7 +36,7 @@ struct raquette
 
 typedef struct raquette raquette;
 
-raquette raq = { .angle = 0, .distance = 40, .size = 90 };
+raquette raq = { .angle = 0, .distance = 300, .size = 90 };
 
 typedef struct ball ball;
 
@@ -50,6 +51,12 @@ void init_world(void)
         world[WORLD_SIZE - 1][cmpt] = 2;
         world[cmpt][0] = 2;
         world[cmpt][WORLD_SIZE - 1] = 2;
+    }
+    for(int cmpt = 0; cmpt < 50; cmpt++)
+    {
+        int x = (rand()%30) + 20;
+        int y = (rand()%30) + 20;
+        world[x][y] = 1;
     }
 }
 
@@ -272,6 +279,7 @@ int main( int argc, char *argv[ ] )
         return EXIT_FAILURE;
     }
 
+    srand(time(0));
     atexit( SDL_Quit );
     SDL_Renderer *renderer;
     window = SDL_CreateWindow("Ma fenêtre de jeu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGTH, 0 );
@@ -312,13 +320,13 @@ int main( int argc, char *argv[ ] )
 			{
                             case SDLK_UP:
                             case SDLK_RIGHT:
-                                raq.angle += 10 * M_PI / 180;
+                                raq.angle += 2 * M_PI / 180;
                                 if(raq.angle > 2 * M_PI)
                                     raq.angle -= 2 * M_PI;
                                 break;
                             case SDLK_LEFT:
                             case SDLK_DOWN:
-                                raq.angle -= 10 * M_PI / 180;
+                                raq.angle -= 2 * M_PI / 180;
                                 if(raq.angle < -2 * M_PI)
                                     raq.angle += 2 * M_PI;
                                 break;
