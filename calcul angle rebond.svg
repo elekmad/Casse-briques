@@ -57,9 +57,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="424.71603"
-     inkscape:cy="100.84457"
+     inkscape:zoom="2.8"
+     inkscape:cx="186.48532"
+     inkscape:cy="107.9782"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -80,7 +80,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -266,5 +266,60 @@
          id="tspan4702"
          x="350.01785"
          y="475.06003">résultat</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4179"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:382.99999237%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(126.42807,301.19626)"><flowRegion
+         id="flowRegion4181"><rect
+           id="rect4183"
+           width="13.928572"
+           height="14.285714"
+           x="36.07143"
+           y="16.536095" /></flowRegion><flowPara
+         id="flowPara4185">AAAAAAaa</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:382.99999237%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="165.35664"
+       y="326.30377"
+       id="text4187"
+       sodipodi:linespacing="382.99999%"><tspan
+         sodipodi:role="line"
+         id="tspan4189"
+         x="165.35664"
+         y="326.30377">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:382.99999237%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="275.35663"
+       y="331.66092"
+       id="text4191"
+       sodipodi:linespacing="382.99999%"><tspan
+         sodipodi:role="line"
+         id="tspan4193"
+         x="275.35663"
+         y="331.66092">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:382.99999237%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="410.71378"
+       y="324.51807"
+       id="text4195"
+       sodipodi:linespacing="382.99999%"><tspan
+         sodipodi:role="line"
+         id="tspan4197"
+         x="410.71378"
+         y="324.51807">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:382.99999237%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="373.92807"
+       y="404.16092"
+       id="text4199"
+       sodipodi:linespacing="382.99999%"><tspan
+         sodipodi:role="line"
+         id="tspan4201"
+         x="373.92807"
+         y="404.16092">D</tspan></text>
   </g>
 </svg>
